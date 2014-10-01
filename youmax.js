@@ -1,6 +1,6 @@
-	var youTubeChannelURL = "";
-	var youTubePlaylistURL = "";
-	var youmaxDefaultTab = "featured";
+//	var youTubeChannelURL = "";
+//	var youTubePlaylistURL = "";
+//	var youmaxDefaultTab = "featured";
 	var youmaxColumns = 2;	
 	var youmaxWidgetWidth = 640;
 	var youmaxWidgetHeight = "";
