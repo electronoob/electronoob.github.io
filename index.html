@@ -17,17 +17,8 @@
 	//var youmaxWidgetHeight = 1000;
 	var showFeaturedVideoOnLoad = false;
 	var showVideoInLightbox = true;
-
 	
-	function goClicked() {
-		$('#youmax').empty().append(' loading ...');
-		youTubeChannelURL=$('#youTubeChannelUrl').val();
-		youTubePlaylistURL=$('#youTubePlaylistUrl').val();
-		youmaxFeaturedPlaylistId = null;
-		prepareYoumax();
-	}
-	
-	$(window).load(function(){$('#youmax-header>img').wrap('<a href="'+youTubeChannelURL+'" target="_blank" />');});
+//	$(window).load(function(){$('#youmax-header>img').wrap('<a href="'+youTubeChannelURL+'" target="_blank" />');});
 
 	</script>
 
@@ -54,6 +45,7 @@
   <body>
   <div id="youmax"></div>
   <script src="./youmax.js"></script>
+  <script>prepareYoumax();</script>
   </body>
 </html>
 
