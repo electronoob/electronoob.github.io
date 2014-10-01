@@ -1,1 +1,63 @@
-What a wonderful world, hello!
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Electronoob: Geeking out!</title>
+
+	<!--<script src="./jquery.min.js"></script>-->
+	<script src="//code.jquery.com/jquery-1.7.min.js"></script>
+	
+
+	<script type="text/javascript">
+	
+	var youTubeChannelURL = "https://www.youtube.com/channel/UCxd3umXjHmcsnL_VZMuJd0g";
+	
+	//optional parameters-----------------------------------------------
+	var youTubePlaylistURL = "http://www.youtube.com/playlist?list=LLxd3umXjHmcsnL_VZMuJd0g";
+	var youmaxDefaultTab = "my likes";
+	var youmaxColumns = 3;	
+	var youmaxWidgetWidth = 900;
+	//var youmaxWidgetHeight = 1000;
+	var showFeaturedVideoOnLoad = false;
+	var showVideoInLightbox = true;
+
+	
+	function goClicked() {
+		$('#youmax').empty().append(' loading ...');
+		youTubeChannelURL=$('#youTubeChannelUrl').val();
+		youTubePlaylistURL=$('#youTubePlaylistUrl').val();
+		youmaxFeaturedPlaylistId = null;
+		prepareYoumax();
+	}
+	
+	$(window).load(function(){$('#youmax-header>img').wrap('<a href="'+youTubeChannelURL+'" target="_blank" />');});
+
+	</script>
+
+	
+	<style>
+
+      body {
+        font-family: Calibri;
+        font-size: 14px;
+		text-align:center;
+      }
+	  
+	  /*#youmax{width:100% !important;}
+	  #youmax-video-list-div{background-color:rgb(53,53,53) !important;}
+	  #youmax-tabs{background-color:rgb(53,53,53) !important;}
+	  #youmax-header{background-color:black !important;}
+	  .youmax-video-list-title{color:white !important;}
+	  .youmax-video-list-views{color:green !important;}*/
+	  
+		
+	</style>
+
+	</head>
+  <body>
+  <div id="youmax"></div>
+  <script src="./youmax.js"></script>
+  </body>
+</html>
+
+
+
