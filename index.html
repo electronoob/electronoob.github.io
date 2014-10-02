@@ -43,9 +43,16 @@
 
 	</head>
   <body>
+  <div id="my-github-projects"></div>
   <div id="youmax"></div>
   <script src="./youmax.js"></script>
   <script>prepareYoumax();</script>
+  <script src="./git.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    $(function() {
+        $("#my-github-projects").loadRepositories("electronoob");
+    });
+</script>
   </body>
 </html>
 
