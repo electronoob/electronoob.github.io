@@ -2,7 +2,7 @@
 	var youTubeChannelURL = "http://www.youtube.com/channel/UCxd3umXjHmcsnL_VZMuJd0g";
 	var youTubePlaylistURL = "http://www.youtube.com/playlist?list=UUxd3umXjHmcsnL_VZMuJd0g";
 	var youmaxDefaultTab = "videos";
-	var youmaxColumns = 2;	
+	var youmaxColumns = 3;	
 	var youmaxWidgetWidth = 640;
 	var youmaxWidgetHeight = "";
 	var showFeaturedVideoOnLoad = false;
@@ -147,9 +147,9 @@
 			
 			if(youTubeChannelURL.indexOf("youtube.com/user/")!=-1) {
 				if(null!=youTubeChannelURL&&youTubeChannelURL.indexOf("?feature")!=-1)
-					youmaxUser = youTubeChannelURL.substring(youTubeChannelURL.indexOf("youtube.com/user/")+17,youTubeChannelURL.indexOf("?feature"));
+					youmaxUser = youTubeChannelURL.substring(youTubeChannelURL.indexOf("youtube.com/channel/")+17,youTubeChannelURL.indexOf("?feature"));
 				else
-					youmaxUser = youTubeChannelURL.substring(youTubeChannelURL.indexOf("youtube.com/user/")+17);
+					youmaxUser = youTubeChannelURL.substring(youTubeChannelURL.indexOf("youtube.com/channel/")+17);
 			}
 
 			
