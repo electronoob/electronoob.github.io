@@ -145,11 +145,11 @@
 		function prepareYoumax() {
 			$('#youmax').empty();
 			
-			if(youTubeChannelURL.indexOf("youtube.com/user/")!=-1) {
+			if(youTubeChannelURL.indexOf("youtube.com/channel/")!=-1) {
 				if(null!=youTubeChannelURL&&youTubeChannelURL.indexOf("?feature")!=-1)
-					youmaxUser = youTubeChannelURL.substring(youTubeChannelURL.indexOf("youtube.com/channel/")+17,youTubeChannelURL.indexOf("?feature"));
+					youmaxUser = youTubeChannelURL.substring(youTubeChannelURL.indexOf("youtube.com/channel/")+24,youTubeChannelURL.indexOf("?feature"));
 				else
-					youmaxUser = youTubeChannelURL.substring(youTubeChannelURL.indexOf("youtube.com/channel/")+17);
+					youmaxUser = youTubeChannelURL.substring(youTubeChannelURL.indexOf("youtube.com/channel/")+24);
 			}
 
 			
