@@ -145,7 +145,7 @@
 		function prepareYoumax() {
 			$('#youmax').empty();
 			// flawed code
-*/			
+/*			
 			if(youTubeChannelURL.indexOf("youtube.com/channel/")!=-1) {
 				if(null!=youTubeChannelURL&&youTubeChannelURL.indexOf("?feature")!=-1)
 					youmaxUser = youTubeChannelURL.substring(youTubeChannelURL.indexOf("youtube.com/channel/")+24,youTubeChannelURL.indexOf("?feature"));
