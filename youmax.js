@@ -168,12 +168,14 @@
 				
 				youmaxTabId = this.id;
 				
-				if(youmaxTabId=="youmax-featured")
+				//if(youmaxTabId=="youmax-featured")
 					initFeaturedVideos();
+				/*
 				if(youmaxTabId=="youmax-uploads")
 					getUploads();
 				if(youmaxTabId=="youmax-playlists")
 					getPlaylists();
+				*/
 			});
 			
 			
