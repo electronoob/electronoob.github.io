@@ -490,7 +490,7 @@
 		function showPlaylistVideos(response) {
 			//console.log(response);
 			$('#youmax-video-list-div').empty();
-			$('#youmax-video-list-div').append('<span class="youmax-video-list-title" style="max-width:100%;"><span class="youmax-showing">&nbsp;&nbsp;Showing playlist: </span>'+response.data.title+'</span><br/>');
+//			$('#youmax-video-list-div').append('<span class="youmax-video-list-title" style="max-width:100%;"><span class="youmax-showing">&nbsp;&nbsp;Showing playlist: </span>'+response.data.title+'</span><br/>');
 			var videoArray = response.data.items;
 			
 			//alert(videoArray.length);
