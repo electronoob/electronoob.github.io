@@ -23,7 +23,7 @@ jQuery.fn.loadRepositories = function(username) {
         var list = $('<dl/>');
         target.empty().append(list);
         $(repos).each(function() {
-            if (this.name != (username.toLowerCase()+'.github.com')) {
+            if (this.name != (username.toLowerCase()+'.github.io')) {
                 list.append('<dt><a target="_parent" href="'+ (this.homepage?this.homepage:this.html_url) +'">' + this.name + '</a> <em>'+(this.language?('('+this.language+')'):'')+'</em></dt>');
                 list.append('<dd>' + this.description +'</dd>');
             }
