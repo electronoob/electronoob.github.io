@@ -1,6 +1,6 @@
 
 	var youTubeChannelURL = "http://www.youtube.com/channel/UCxd3umXjHmcsnL_VZMuJd0g";
-	var youTubePlaylistURL = "http://www.youtube.com/playlist?list=LLxd3umXjHmcsnL_VZMuJd0g";
+	var youTubePlaylistURL = "http://www.youtube.com/playlist?list=UUxd3umXjHmcsnL_VZMuJd0g";
 	var youmaxDefaultTab = "videos";
 	var youmaxColumns = 2;	
 	var youmaxWidgetWidth = 640;
