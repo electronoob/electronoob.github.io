@@ -118,7 +118,7 @@
 	function loadYoumax() {		
 		$('#youmax').append('<div id="youmax-header"><div id="youmax-stat-holder"></div></div>');
 
-		$('#youmax').append('<div id="youmax-tabs"><span id="youmax-featured" class="youmax-tab">Featured</span><span id="youmax-uploads" class="youmax-tab">Uploads</span><span id="youmax-playlists" class="youmax-tab">Playlists</span></div>');
+//		$('#youmax').append('<div id="youmax-tabs"><span id="youmax-featured" class="youmax-tab">Featured</span><span id="youmax-uploads" class="youmax-tab">Uploads</span><span id="youmax-playlists" class="youmax-tab">Playlists</span></div>');
 		
 		$('#youmax').append('<div id="youmax-encloser"><iframe id="youmax-video" width="'+(youmaxWidgetWidth-2)+'" height="'+(youmaxWidgetWidth/youtubeVideoAspectRatio)+'" src="" frameborder="0" allowfullscreen></iframe><div id="youmax-video-list-div"></div></div>');
 		
