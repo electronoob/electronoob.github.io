@@ -1,60 +1,13 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Electronoob: Geeking out!</title>
+---
+layout: default
+title: Electronoob.com
+---
 
-	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-
-	<script type="text/javascript">
-	
-	var youTubeChannelURL = "http://www.youtube.com/channel/UCxd3umXjHmcsnL_VZMuJd0g";
-	
-	//optional parameters-----------------------------------------------
-	//var youTubePlaylistURL = "http://www.youtube.com/playlist?list=LLxd3umXjHmcsnL_VZMuJd0g";
-	var youmaxDefaultTab = "videos";
-	var youmaxColumns = 3;	
-	var youmaxWidgetWidth = 900;
-	//var youmaxWidgetHeight = 1000;
-	var showFeaturedVideoOnLoad = false;
-	var showVideoInLightbox = true;
-	
-//	$(window).load(function(){$('#youmax-header>img').wrap('<a href="'+youTubeChannelURL+'" target="_blank" />');});
-
-	</script>
-
-	
-	<style>
-
-      body {
-        font-family: Calibri;
-        font-size: 14px;
-		text-align:center;
-      }
-	  
-	  /*#youmax{width:100% !important;}
-	  #youmax-video-list-div{background-color:rgb(53,53,53) !important;}
-	  #youmax-tabs{background-color:rgb(53,53,53) !important;}
-	  #youmax-header{background-color:black !important;}
-	  .youmax-video-list-title{color:white !important;}
-	  .youmax-video-list-views{color:green !important;}*/
-	  
-		
-	</style>
-
-	</head>
-  <body>
-  <div id="my-github-projects"></div>
-  <div id="youmax"></div>
-  <script src="./youmax.js"></script>
-  <script>prepareYoumax();</script>
-  <script src="./git.js" type="text/javascript"></script>
-  <script type="text/javascript">
-    $(function() {
-        $("#my-github-projects").loadRepositories("electronoob");
-    });
-</script>
-  </body>
-</html>
-
-
-
+<div id="home">
+  <h1>Blog Posts</h1>
+  <ul class="posts">
+    {% for post in site.posts %}
+      <li><span>{{ post.date | date_to_string }}</span> &nbsp;&nbsp;<a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+  </ul>
+</div>
