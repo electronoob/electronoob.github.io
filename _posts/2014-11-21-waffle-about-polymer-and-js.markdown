@@ -2,7 +2,7 @@
 layout: post
 title:  "Polymer and JS waffles."
 date:   2014-11-21 10:30:00
-categories: polymer javascript web3.0 html5 desktop cross-platform
+categories: cross-platform
 ---
 
 I sit down to begin writing a blog post, I don’t really know what I will be writing about but I suspect it will be about my recent research into HTML5 and “stuff”.
