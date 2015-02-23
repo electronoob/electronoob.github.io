@@ -12,7 +12,7 @@ function getsubs() {
   request.execute(function(response) {
     console.log(response.result);
     $.each(response.result.items, function (index, item) {
-      webAddItem(item.snippet.title, item.resource.channelId, item.snippet.description, item.snippet.thumbnails.high.url);
+      webAddItem(item.snippet.title, item.snippet.resourceId.channelId, item.snippet.description, item.snippet.thumbnails.high.url);
     });
   });
 }
