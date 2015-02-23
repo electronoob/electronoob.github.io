@@ -8,6 +8,6 @@ function getsubs() {
     part: 'contentDetails'
   });
   request.execute(function(response) {
-    console.log(response.result.items[0].contentDetails);
+    console.log(response.result);
   });
 }
