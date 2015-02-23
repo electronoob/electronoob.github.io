@@ -1,6 +1,6 @@
-nextPageToken = '';
-prevPageToken = '';
-currentPageNumber = '';
+var nextPageToken = '';
+var prevPageToken = '';
+var currentPageNumber = '';
 
 function handleAPILoaded() {
   getsubs(null);
