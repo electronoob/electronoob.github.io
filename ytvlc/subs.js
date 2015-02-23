@@ -1,3 +1,7 @@
+nextPageToken = '';
+previousPageToken = '';
+currentPageNumber = '';
+
 function handleAPILoaded() {
   getsubs();
 }
@@ -11,9 +15,14 @@ function getsubs() {
   });
   request.execute(function(response) {
     console.log(response.result);
-    $.each(response.result.items, function (index, item) {
-      webAddItem(item.snippet.title, item.snippet.resourceId.channelId, item.snippet.description, item.snippet.thumbnails.high.url);
-    });
+    if (response.result.kind == "youtube#subscriptionListResponse") {
+        nextPageToken = response.result.nextPageToken;
+        $.each(response.result.items, function (index, item) {
+          webAddItem(item.snippet.title, item.snippet.resourceId.channelId, item.snippet.description, item.snippet.thumbnails.high.url);
+        });
+    } else {
+        webAddItem('cant find shit dawg', -1, "unable to load content", null);
+    }
   });
 }
 
