@@ -46,3 +46,11 @@ function webAddItem (title, id, description, img) {
 ";
   $("body").append (html);
 }
+
+function nextPage() {
+    getsubs(nextPageToken);
+}
+function prevPage() {
+    getsubs(prevPageToken);
+}
+
