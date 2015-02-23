@@ -23,7 +23,7 @@ function getsubs(pageToken) {
         nextPageToken = response.result.nextPageToken;
         prevPageToken = response.result.prevPageToken;
         $.each(response.result.items, function (index, item) {
-          webAddItem(item.snippet.title, item.snippet.resourceId.channelId, item.snippet.description, item.snippet.thumbnails.default.url, item.snippet.relatedPlaylists.uploads);
+          webAddItem(item.snippet.title, item.snippet.resourceId.channelId, item.snippet.description, item.snippet.thumbnails.default.url, item.contentDetails.relatedPlaylists.uploads);
         });
     } else {
         webAddItem('cant find shit dawg', -1, "unable to load content", null);
