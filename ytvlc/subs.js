@@ -16,12 +16,7 @@ function getsubs(pageToken) {
   if(pageToken) {
     requestOptions.pageToken = pageToken;
   }
-  var request = gapi.client.youtube.subscriptions.list({
-    mine: true,
-    part: 'contentDetails,snippet,subscriberSnippet',
-    maxResults: 50,
-    order: 'alphabetical'
-  });
+  var request = gapi.client.youtube.subscriptions.list(requestOptions);
   request.execute(function(response) {
     console.log(response.result);
     if (response.result.kind == "youtube#subscriptionListResponse") {
@@ -48,9 +43,11 @@ function webAddItem (title, id, description, img) {
 }
 
 function nextPage() {
+    alert(nextPageToken);
     getsubs(nextPageToken);
 }
 function prevPage() {
+alert(prevPageToken);
     getsubs(prevPageToken);
 }
 
