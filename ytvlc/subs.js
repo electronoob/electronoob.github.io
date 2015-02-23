@@ -39,7 +39,7 @@ function webAddItem (title, id, description, img) {
     <img src='"+img+"'/>\
 </div>\
 ";
-  $("body").append (html);
+  $("#output").append (html);
 }
 
 function nextPage() {
