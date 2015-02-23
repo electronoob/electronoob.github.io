@@ -17,11 +17,11 @@ function getsubs() {
   });
 }
 
-function webAddItem (title, id, img) {
+function webAddItem (title, id, description, img) {
   html = "\
 <div>\
     <span>"+title+"</span>\
-    <a href='https://www.youtube.com/channel/"+id+"'>linkypoo</a>\
+    <a href='https://www.youtube.com/channel/"+id+"'>"+description+"</a>\
     <img src='"+img+"'/>\
 </div>\
 ";
