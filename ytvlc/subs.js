@@ -21,7 +21,7 @@ function webAddItem (title, id, description, img) {
   html = "\
 <div>\
     <span>"+title+"</span>\
-    <a href='https://www.youtube.com/channel/"+id+"'><small>"+description+"</small></a>\
+    <a href='https://www.youtube.com/channel/"+id+"'>"+description+"</a>\
     <img src='"+img+"'/>\
 </div>\
 ";
