@@ -9,7 +9,7 @@ function handleAPILoaded() {
 function getsubs(pageToken) {
   var requestOptions = {
     mine: true,
-    part: 'contentDetails,snippet,subscriberSnippet',
+    part: 'contentDetails,snippet',
     maxResults: 50,
     order: 'alphabetical'
   };
@@ -23,7 +23,7 @@ function getsubs(pageToken) {
         nextPageToken = response.result.nextPageToken;
         prevPageToken = response.result.prevPageToken;
         $.each(response.result.items, function (index, item) {
-          webAddItem(item.snippet.title, item.snippet.resourceId.channelId, item.snippet.description, item.snippet.thumbnails.high.url);
+          webAddItem(item.snippet.title, item.snippet.resourceId.channelId, item.snippet.description, item.snippet.thumbnails.default.url);
         });
     } else {
         webAddItem('cant find shit dawg', -1, "unable to load content", null);
