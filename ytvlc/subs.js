@@ -19,7 +19,7 @@ function getsubs() {
 
 function webAddItem (title, id, description, img) {
   html = "\
-<div>\
+<div style='width: 400px; border: 2px solid #c0c0c0; padding: 20px;'>\
     <span>"+title+"</span>\
     <a href='https://www.youtube.com/channel/"+id+"'>"+description+"</a>\
     <img src='"+img+"'/>\
