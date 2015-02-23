@@ -11,5 +11,8 @@ function getsubs() {
   });
   request.execute(function(response) {
     console.log(response.result);
+    $.each(response.result.items, function (index, item) {
+      console.log(item.snippet.title);
+    });
   });
 }
