@@ -12,7 +12,7 @@ function getsubs() {
   request.execute(function(response) {
     console.log(response.result);
     $.each(response.result.items, function (index, item) {
-      webAddItem(item.snippet.title, item.snippet.channelId, item.snippet.description, item.snippet.thumbnails.high.url);
+      webAddItem(item.snippet.title, item.resource.channelId, item.snippet.description, item.snippet.thumbnails.high.url);
     });
   });
 }
@@ -21,7 +21,7 @@ function webAddItem (title, id, description, img) {
   html = "\
 <div>\
     <span>"+title+"</span>\
-    <a href='https://www.youtube.com/channel/"+id+"'>"+description+"</a>\
+    <a href='https://www.youtube.com/channel/"+id+"'>"+<small>description</small>+"</a>\
     <img src='"+img+"'/>\
 </div>\
 ";
