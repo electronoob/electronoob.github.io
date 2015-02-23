@@ -43,11 +43,11 @@ function webAddItem (title, id, description, img) {
 }
 
 function nextPage() {
-    $("#output").html = '';
+    $("#output").empty();
     getsubs(nextPageToken);
 }
 function prevPage() {
-    $("#output").html = '';
+    $("#output").empty();
     getsubs(prevPageToken);
 }
 
