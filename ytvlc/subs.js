@@ -1,12 +1,21 @@
 nextPageToken = '';
-previousPageToken = '';
+prevPageToken = '';
 currentPageNumber = '';
 
 function handleAPILoaded() {
-  getsubs();
+  getsubs(null);
 }
 
-function getsubs() {
+function getsubs(pageToken) {
+  var requestOptions = {
+    mine: true,
+    part: 'contentDetails,snippet,subscriberSnippet',
+    maxResults: 50,
+    order: 'alphabetical'
+  };
+  if(pageToken) {
+    requestOptions.pageToken = pageToken;
+  }
   var request = gapi.client.youtube.subscriptions.list({
     mine: true,
     part: 'contentDetails,snippet,subscriberSnippet',
@@ -17,6 +26,7 @@ function getsubs() {
     console.log(response.result);
     if (response.result.kind == "youtube#subscriptionListResponse") {
         nextPageToken = response.result.nextPageToken;
+        prevPageToken = response.result.prevPageToken;
         $.each(response.result.items, function (index, item) {
           webAddItem(item.snippet.title, item.snippet.resourceId.channelId, item.snippet.description, item.snippet.thumbnails.high.url);
         });
