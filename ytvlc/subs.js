@@ -12,7 +12,18 @@ function getsubs() {
   request.execute(function(response) {
     console.log(response.result);
     $.each(response.result.items, function (index, item) {
-      console.log(item.snippet.title);
+      webAddItem(item.snippet.title, item.snippet.channelId, item.snippet.description, item.snippet.thumbnails.high.url);
     });
   });
+}
+
+function webAddItem (title, id, img) {
+  html = "\
+<div>\
+    <span>"+title+"</span>\
+    <a href='https://www.youtube.com/channel/"+id+"'>linkypoo</a>\
+    <img src='"+img+"'/>\
+</div>\
+";
+  $("body").append (html);
 }
