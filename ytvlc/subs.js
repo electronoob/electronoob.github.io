@@ -46,14 +46,20 @@ function webAddItem (title, id, description, img) {
 var jqxhr = $.get( "https://www.googleapis.com/youtube/v3/channels?part=contentDetails&id="+id+"&maxResults=50&key="+apikey, function() {
 //  alert( "success" );
 })
-  .done(function() {
-    $("#"+id).append("done");
+  .done(function(response) {
+    $("#"+id).empty();
+    pls = response.items.contentDetails.relatedPlaylists.uploads;
+    $("#"+id).append(
+        "<a href='https://www.youtube.com/playlist?list="+pls+"'>"
+        +pls+
+        "</a>"
+    );
   })
-  .fail(function() {
-    $("#"+id).append("fucksake");
+  .fail(function(response) {
+    $("#"+id).empty();
+    $("#"+id).append("Some dumb error occured when trying to get upload playlist.<br><pre>"+response+"</pre>");
   })
   .always(function() {
-    $("#"+id).append("always "+id);
   });
  
 
