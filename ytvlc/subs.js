@@ -3,7 +3,9 @@ var prevPageToken = '';
 var currentPageNumber = '';
 
 function handleAPILoaded() {
-  getsubs(null);
+   getsubs();
+   while(nextPage()) {}
+   alert("generated list of all of your subs");    
 }
 
 function getsubs(pageToken) {
@@ -43,11 +45,16 @@ function webAddItem (title, id, description, img) {
 }
 
 function nextPage() {
-    $("#output").empty();
-    getsubs(nextPageToken);
+//    $("#output").empty();
+    if (nextPageToken) {
+        getsubs(nextPageToken);
+        return 1;
+    }    else {
+        return 0; 
+    }
 }
 function prevPage() {
-    $("#output").empty();
+//    $("#output").empty();
     getsubs(prevPageToken);
 }
 
