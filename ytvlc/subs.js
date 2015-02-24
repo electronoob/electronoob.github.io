@@ -4,6 +4,18 @@ var currentPageNumber = '';
 var apikey = 'AIzaSyCqh_vJ8HvSgFxmwkW4jN-eaq_SlO8n0mI';
 function handleAPILoaded() {
    getsubs();
+
+  $('.sendToVLCpls').click(function (event){ 
+     event.preventDefault(); 
+     $.ajax({
+        url: $(this).attr('href')
+        ,success: function(response) {
+            alert(response)
+        }
+     })
+     return false; //for good measure
+});
+
 }
 
 function getsubs(pageToken) {
