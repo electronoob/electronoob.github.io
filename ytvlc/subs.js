@@ -39,20 +39,26 @@ function webAddItem (title, id, description, img) {
     <img style='width: 30px; height: 30px;' src='"+img+"'/><br/>\
     <a href='https://www.youtube.com/channel/"+id+"'><span>"+title+"</span></a>\
     <p>"+description+"</p>\
+    <div id='"+id+"' class='uploads'>fetching uploads playlist</div>\
 </div>\
 ";
   $("#output").append (html);
+var jqxhr = $.get( "https://www.googleapis.com/youtube/v3/channels?part=contentDetails&id="+id+"&maxResults=50&key="+apikey, function() {
+//  alert( "success" );
+})
+  .done(function() {
+    $("#"+id).append("done");
+  })
+  .fail(function() {
+    $("#"+id).append("fucksake");
+  })
+  .always(function() {
+    $("#"+id).append("always");
+  });
+ 
+
 }
 
-function nextPage() {
-//    $("#output").empty();
-    if (nextPageToken) {
-        getsubs(nextPageToken);
-        return 1;
-    }    else {
-        return 0; 
-    }
-}
 function prevPage() {
 //    $("#output").empty();
     getsubs(prevPageToken);
