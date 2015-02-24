@@ -4,7 +4,6 @@ var currentPageNumber = '';
 
 function handleAPILoaded() {
    getsubs();
-   while(nextPage() == 1) {}
 }
 
 function getsubs(pageToken) {
@@ -26,6 +25,8 @@ function getsubs(pageToken) {
         $.each(response.result.items, function (index, item) {
           webAddItem(item.snippet.title, item.snippet.resourceId.channelId, item.snippet.description, item.snippet.thumbnails.default.url);
         });
+        if (response.result.nextPageToken)
+            getsubs(response.result.nextPageToken); 
     } else {
         webAddItem('cant find shit dawg', -1, "unable to load content", null);
     }
