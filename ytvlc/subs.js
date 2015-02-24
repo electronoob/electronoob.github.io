@@ -43,12 +43,10 @@ function webAddItem (title, id, description, img) {
 </div>\
 ";
   $("#output").append (html);
-var jqxhr = $.get( "https://www.googleapis.com/youtube/v3/channels?part=contentDetails&id="+id+"&maxResults=50&key="+apikey, function() {
-//  alert( "success" );
-})
+var jqxhr = $.get( "https://www.googleapis.com/youtube/v3/channels?part=contentDetails&id="+id+"&maxResults=50&key="+apikey)
   .done(function(response) {
     $("#"+id).empty();
-    pls = response.items.contentDetails.relatedPlaylists.uploads;
+    pls = response.items.contentDetails;
     $("#"+id).append(
         "<a href='https://www.youtube.com/playlist?list="+pls+"'>"
         +pls+
@@ -59,9 +57,6 @@ var jqxhr = $.get( "https://www.googleapis.com/youtube/v3/channels?part=contentD
     $("#"+id).empty();
     $("#"+id).append("Some dumb error occured when trying to get upload playlist.<br><pre>"+response+"</pre>");
   })
-  .always(function() {
-  });
- 
 
 }
 
