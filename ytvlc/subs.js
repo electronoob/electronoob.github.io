@@ -53,7 +53,7 @@ var jqxhr = $.get( "https://www.googleapis.com/youtube/v3/channels?part=contentD
         + "Channel uploads playlist"
         + "</a>"
         + "<br/>"
-        + "<a class='sendToVLCpls' id='stv+"+plsId+"' target='_blank' href='http://localhost:8080/requests/status.json?command=in_enqueue&input="+encodeURIComponent(pls)+"'>"
+        + "<a class='sendToVLCpls' id='stv"+plsId+"' target='_blank' href='http://localhost:8080/requests/status.json?command=in_enqueue&input="+encodeURIComponent(pls)+"'>"
         + "Send to VLC (localhost:8080)"
         + "</a>"        
     );
