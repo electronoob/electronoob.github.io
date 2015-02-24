@@ -35,7 +35,7 @@ function getsubs(pageToken) {
 
 function webAddItem (title, id, description, img) {
   html = "\
-<div style='border: 2px solid #c0c0c0; padding: 20px; margin: 20px;'>\
+<div style='width: 300px; float: left; border: 2px solid #c0c0c0; padding: 20px; margin: 20px;'>\
     <img style='width: 30px; height: 30px;' src='"+img+"'/><br/>\
     <a href='https://www.youtube.com/channel/"+id+"'><span>"+title+"</span></a>\
     <p>"+description+"</p>\
@@ -46,11 +46,15 @@ function webAddItem (title, id, description, img) {
 var jqxhr = $.get( "https://www.googleapis.com/youtube/v3/channels?part=contentDetails&id="+id+"&maxResults=50&key="+apikey)
   .done(function(response) {
     $("#"+id).empty();
-    pls = response.items[0].contentDetails.relatedPlaylists.uploads;
+    plsId = response.items[0].contentDetails.relatedPlaylists.uploads;
+    pls = "https://www.youtube.com/playlist?list="+plsId;
     $("#"+id).append(
-        "<a href='https://www.youtube.com/playlist?list="+pls+"'>"
-        +pls+
-        "</a>"
+        "<a target='_blank' href='"+pls+"'>"
+        + "Channel uploads playlist"
+        + "</a>"
+        + "<a class='sendToVLCpls' target='_blank' href='http://localhost:8080/requests/status.json?command=in_enqueue&input="+encodeURIComponent(pls)+"'>"
+        + "Send to VLC (localhost:8080)"
+        + "</a>"        
     );
   })
   .fail(function(response) {
