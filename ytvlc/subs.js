@@ -4,18 +4,6 @@ var currentPageNumber = '';
 var apikey = 'AIzaSyCqh_vJ8HvSgFxmwkW4jN-eaq_SlO8n0mI';
 function handleAPILoaded() {
    getsubs();
-
-  $('.sendToVLCpls').click(function (event){ 
-     event.preventDefault(); 
-     $.ajax({
-        url: $(this).attr('href')
-        ,success: function(response) {
-            alert(response)
-        }
-     })
-     return false; //for good measure
-});
-
 }
 
 function getsubs(pageToken) {
@@ -64,10 +52,33 @@ var jqxhr = $.get( "https://www.googleapis.com/youtube/v3/channels?part=contentD
         "<a target='_blank' href='"+pls+"'>"
         + "Channel uploads playlist"
         + "</a>"
-        + "<a class='sendToVLCpls' target='_blank' href='http://localhost:8080/requests/status.json?command=in_enqueue&input="+encodeURIComponent(pls)+"'>"
+        + "<br/>"
+        + "<a class='sendToVLCpls' id='stv+"+plsId+"' target='_blank' href='http://localhost:8080/requests/status.json?command=in_enqueue&input="+encodeURIComponent(pls)+"'>"
         + "Send to VLC (localhost:8080)"
         + "</a>"        
     );
+
+    $( "#stv"+plsId ).bind( "click", function() {
+        event.preventDefault();
+        $.ajax({
+            url: $(this).attr('href')
+            ,success: function(response) {
+                $( "#stv"+plsId ).empty();
+                $( "#stv"+plsId ).append("sent to vlc");
+            }
+        })
+        return false;
+    });
+
+
+
+
+
+
+
+
+
+
   })
   .fail(function(response) {
     $("#"+id).empty();
