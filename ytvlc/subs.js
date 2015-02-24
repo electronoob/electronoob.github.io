@@ -46,7 +46,7 @@ function webAddItem (title, id, description, img) {
 var jqxhr = $.get( "https://www.googleapis.com/youtube/v3/channels?part=contentDetails&id="+id+"&maxResults=50&key="+apikey)
   .done(function(response) {
     $("#"+id).empty();
-    pls = response.items.contentDetails;
+    pls = response.items[0].contentDetails;
     $("#"+id).append(
         "<a href='https://www.youtube.com/playlist?list="+pls+"'>"
         +pls+
