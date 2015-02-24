@@ -4,8 +4,7 @@ var currentPageNumber = '';
 
 function handleAPILoaded() {
    getsubs();
-   while(nextPage()) {}
-   alert("generated list of all of your subs");    
+   while(nextPage() == 1) {}
 }
 
 function getsubs(pageToken) {
