@@ -37,11 +37,11 @@ function getsubs(pageToken) {
 function webAddItem (title, id, description, img) {
   html = "\
 <div class='webItemDiv'>\
-    <a class='webItemA' href='https://www.youtube.com/channel/"+id+"'><span class='webItemSpan'>"+title+"</span></a>\
-        <div>\
+    <a class='webItemName' href='https://www.youtube.com/channel/"+id+"'><span class='webItemSpan'>"+title+"</span></a>\
+        <div class='webItemChunk'>\
             <img class='webItemImg' src='"+img+"'/>\
-            <p>"+description+"</p>\
-            <div id='"+id+"' class='uploads'>fetching uploads playlist</div>\
+            <p class='webItemDescription'>"+description+"</p>\
+            <div id='"+id+"' class='webItemUploads'>fetching uploads playlist</div>\
         </div>\
 </div>\
 ";
