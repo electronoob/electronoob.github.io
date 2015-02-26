@@ -1,6 +1,6 @@
 iframe.hiddentarget { visibility:hidden;}
-p.webItemDescription { visibility:hidden;}
-div.webItemDiv {border: 1px solid #c0c0c0; padding: 20px; margin: 20px; background-color: #fff;box-shadow: 5px 5px 10px #dddddd; text-align: left;}
+p.webItemDescription { visibility:hidden;line-height: 0px; height: 0px; overflow: hidden;}
+div.webItemDiv {border: 1px solid #c0c0c0; padding: 20px; margin: 20px; background-color: #fff;box-shadow: 5px 5px 10px #dddddd; text-align: left; overflow: hidden; width: 300px; float:left;}
 span.webItemSpan { font-size: 7.5em; font-family: dorsa; }
 a.webItemName { text-decoration: none; color:#000;}
 img.webItemImg { width: 100px; height: 100px; }
