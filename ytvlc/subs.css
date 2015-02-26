@@ -1,2 +1,2 @@
 iframe.hiddentarget { visibility:hidden;}
-div.webItem {width: 300px; float: left; border: 2px solid #c0c0c0; padding: 20px; margin: 20px; background-color: #fff;}
+div.webItem {width: 100%; height:40px; clear: both; border: 2px solid #c0c0c0; padding: 20px; margin: 20px; background-color: #fff;}
