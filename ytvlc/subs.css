@@ -1,7 +1,9 @@
 iframe.hiddentarget { visibility:hidden;}
-p.webItemDescription { visibility:hidden;line-height: 0px; height: 0px; text-overflow: clip;}
-div.webItemDiv {border: 1px solid #c0c0c0; padding: 20px; margin: 20px; background-color: #fff;box-shadow: 5px 5px 10px #dddddd; text-align: left; overflow: clip; width: 300px; float:left;}
-span.webItemSpan { font-size: 7.5em; font-family: dorsa; overflow: clip; }
-a.webItemName { text-decoration: none; color:#000; overflow: clip; }
+p.webItemDescription { visibility:hidden;line-height: 0px; height: 0px; }
+div.webItemDiv {border: 1px solid #c0c0c0; padding: 20px; margin: 20px; background-color: #fff;box-shadow: 5px 5px 10px #dddddd; text-align: left;     overflow: auto;
+    white-space: nowrap;
+    width: 300px; float:left;}
+span.webItemSpan { font-size: 7.5em; font-family: dorsa; display: inline-block; }
+a.webItemName { text-decoration: none; color:#000; display: inline-block; }
 img.webItemImg { width: 100px; height: 100px; }
-div.webItemChunk  { clear:right; overflow: clip; }
+div.webItemChunk  { clear:right;  }
