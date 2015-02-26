@@ -37,7 +37,7 @@ function webAddItem (title, id, description, img) {
   html = "\
 <div class='webItemDiv'>\
     <img class='webItemImg' src='"+img+"'/>\
-    <a href='https://www.youtube.com/channel/"+id+"'><span class='webItemSpan'>"+title+"</span></a>\
+    <a class='webItemA' href='https://www.youtube.com/channel/"+id+"'><span class='webItemSpan'>"+title+"</span></a>\
     <p>"+description+"</p>\
     <div id='"+id+"' class='uploads'>fetching uploads playlist</div>\
 </div>\
