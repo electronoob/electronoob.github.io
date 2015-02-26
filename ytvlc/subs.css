@@ -1,4 +1,4 @@
 iframe.hiddentarget { visibility:hidden;}
-div.webItem {border: 1px solid #c0c0c0; padding: 20px; margin: 20px; background-color: #fff;}
-span.webItem { font-size: 7.5em; color: #d0e0d0;}
-img.webItem{ width: 50px; height: 50px; }
+div.webItemDiv {border: 1px solid #c0c0c0; padding: 20px; margin: 20px; background-color: #fff;}
+span.webItemSpan { font-size: 7.5em; color: #d0e0d0;}
+img.webItemImg { width: 50px; height: 50px; }
