@@ -23,7 +23,7 @@ function getsubs(pageToken) {
         nextPageToken = response.result.nextPageToken;
         prevPageToken = response.result.prevPageToken;
         $.each(response.result.items, function (index, item) {
-          webAddItem(item.snippet.title, item.snippet.resourceId.channelId, item.snippet.description, item.snippet.thumbnails.heigh.url);
+          webAddItem(item.snippet.title, item.snippet.resourceId.channelId, item.snippet.description, item.snippet.thumbnails.default.url);
         });
         if (response.result.nextPageToken)
             getsubs(response.result.nextPageToken); 
