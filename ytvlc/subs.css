@@ -1,8 +1,8 @@
 iframe.hiddentarget { visibility:hidden;}
 div.webItemDiv {border: 1px solid #c0c0c0; padding: 10px; margin: 10px; background-color: #fff;box-shadow: 5px 5px 10px #dddddd; text-align: left;     overflow: hidden;
     white-space: nowrap;
-    width: 20%; float:left; font-family: neuton; font-size: 2em;}
-span.webItemSpan { font-size: 3.3em; font-family: buda; }
+    width: 20%; float:left; font-family: neuton; font-size: 1.2em;}
+span.webItemSpan { font-size: 2em; font-family: buda; }
 a.webItemName { text-decoration: none; color:#000;  }
 img.webItemImg { width: 0px; height: 0px; }
 div.webItemChunk  { clear:right; display: inline-block; }
