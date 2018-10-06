@@ -1,9 +1,9 @@
-function ui_class(x, y, w, h, title) {
-
+function ui_class(x, y, w, h, title, hwnd) {
     this.w = w;
     this.h = h;
     this.x = x;
     this.y = y;
+    this.hwnd = hwnd;
     this.title = title;
     this.fake = {
         origin: {
@@ -21,9 +21,36 @@ function ui_class(x, y, w, h, title) {
         inactive: {},
         title: this.title
     };
+    this.dom_content = null;
+    this.generate_html = function () {
+        let w = document.createElement('div');
+        w.id = "window_" + this.hwnd;
+        w.style.boxShadow = "5px 10px 20px rgba(0,0,0,0.3)";
+        let c = document.createElement('div');
+        c.id = "content_" + this.hwnd;
+        c.style.backgroundColor = "#c0c0c0";
 
+        w.style.width = this.fake.width + "px";
+        w.style.height = this.fake.height + "px";
+        w.style.top = this.fake.x + "px";
+        w.style.left = this.fake.y + "px";
+        w.style.position = "absolute";
+        w.style.zIndex = "100";
+        w.style.backgroundImage = "url(" + this.fake.active.canvas.toDataURL() + ")";
+        
+        c.style.width = ui.fake.w + "px";
+        c.style.height = ui.fake.h + "px";
+        c.style.top = ui.fake.origin.y + "px";
+        c.style.left = ui.fake.origin.x + "px";
+        c.style.position = "relative";
+        
+        w.appendChild(c);
+        document.body.appendChild(w);
+        this.dragElement(w);
 
-    this.generate = function() {
+        this.dom_content = c;
+    }
+    this.generate_gfx = function() {
         var modes = ['active', 'inactive'];
         for (var mode of modes) {
             let i = 0,
