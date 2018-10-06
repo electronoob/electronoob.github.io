@@ -32,16 +32,16 @@ function ui_class(x, y, w, h, title, hwnd) {
 
         w.style.width = this.fake.width + "px";
         w.style.height = this.fake.height + "px";
-        w.style.top = this.fake.x + "px";
-        w.style.left = this.fake.y + "px";
+        w.style.top = this.fake.y + "px";
+        w.style.left = this.fake.x + "px";
         w.style.position = "absolute";
         w.style.zIndex = "100";
         w.style.backgroundImage = "url(" + this.fake.active.canvas.toDataURL() + ")";
         
-        c.style.width = ui.fake.w + "px";
-        c.style.height = ui.fake.h + "px";
-        c.style.top = ui.fake.origin.y + "px";
-        c.style.left = ui.fake.origin.x + "px";
+        c.style.width = this.fake.w + "px";
+        c.style.height = this.fake.h + "px";
+        c.style.top = this.fake.origin.y + "px";
+        c.style.left = this.fake.origin.x + "px";
         c.style.position = "relative";
         
         w.appendChild(c);

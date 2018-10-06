@@ -1,15 +1,34 @@
 var theme = new xpm_template();
 theme.convert_xpm_to_canvas();
 
-var ui = new ui_class(50, 50, 160*2+10, 144*2+10, "Welcome", 1);
-ui.generate_gfx();
-ui.generate_html();
+var hwnd = 0;
+var ui = {
+  welcome: new ui_class(50, 50, 160*2+10, 144*2+10, "Welcome", ++hwnd),
+  html: new ui_class(160*2+10+50+20, 50, 800, 600, "Browser", ++hwnd)
+};
+
+ui.welcome.generate_gfx();
+ui.welcome.generate_html();
+ui.html.generate_gfx();
+ui.html.generate_html();
 
 let n = document.createElement('canvas');
 n.width = 160;
 n.height = 144;
 n.id = "lcd";
-ui.dom_content.appendChild(n);
+ui.welcome.dom_content.appendChild(n);
+
+n = document.createElement('iframe');
+n.width = "100%";
+n.height = "100%";
+n.id = "browser";
+n.src = "http://www.electronoob.com/old/index.html";
+n.style.border = 0;
+ui.html.dom_content.appendChild(n);
+
+
+
+
 
 var buffer_vram = new ArrayBuffer(0x1fff);
 var vram = new DataView(buffer_vram);
@@ -521,7 +540,6 @@ function draw8x8x4 (sprite_array, x, y) {
         ctx.fillStyle="rgb(0,"+p+",0)";
         ctx.fillRect(7-k,i,1,1);
     }
-    
   let lcd = document.getElementById("lcd");
   let lcdctx = lcd.getContext("2d");
   lcdctx.drawImage(c, x*8, y*8);
@@ -556,7 +574,7 @@ function parse8x8x4 (address) {
 
 
 function dump_vram () {
-    let m = document.getElementById("memory");
+  let m = document.getElementById("memory");
   let buf = "";
   let i = 0;
   for(;i<0x1fff;i++) {
