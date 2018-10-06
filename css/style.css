@@ -1,0 +1,26 @@
+body {
+    background-color: #acb4c1;
+    user-select: none;
+    background: url(
+      https://i.imgur.com/4rCeQ6K.jpg
+    ) no-repeat center center fixed; 
+    background-size: cover;
+  }
+  div.content {
+    background-color: #c0c0c0;
+  }
+  div.window {
+    box-shadow: 5px 10px 20px rgba(0,0,0,0.3);
+  }
+  canvas#lcd {
+      width: calc(160*2px);
+      height: calc(144*2px);
+      image-rendering: optimizeSpeed;
+      image-rendering: -moz-crisp-edges;
+      image-rendering: -webkit-optimize-contrast;
+      image-rendering: optimize-contrast;
+      image-rendering: pixelated;
+      background-color: #004400;
+      border: 1px solid #000;
+      margin:5px;
+  }
