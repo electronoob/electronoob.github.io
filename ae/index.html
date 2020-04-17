@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	  <head>
+		      <meta charset="utf-8">
+		          <meta name="description" content="Test your JavaScript, CSS, HTML or CoffeeScript online with JSFiddle code editor.">
+			      <meta name="keywords" content="online javascript editor, testing javascript online, online ide, online code editor, html, css, coffeescript, scss online editor">
+			          <meta name="author" content="JSFiddle">
+				      <meta name="copyright" content="share alike">
+
+				            <meta name="robots" content="index, follow">
+					          <meta name="googlebot" content="index, follow">
+
+						      <meta name="apple-mobile-web-app-capable" content="yes">
+						          <meta name="apple-touch-fullscreen" content="yes">
+							      <meta name="viewport" content="width=device-width, initial-scale=1">
+							          <meta name="theme-color" content="#0084ff">
+
+								      <script>
+									            var EditorConfig = {
+											            shell: true,
+											            paths: {
+													              favorite:         "/_make_favourite/",
+													              media:            "/mooshellmedia/",
+													              addResource:      "/_add_external_resource/",
+													              render:           "//fiddle.jshell.net/electronoob/bckn1h8w/178/show/",
+													              saveSettings:     "/_editor_options/",
+													              fork:             "/_save/?is_forking",
+													              save:             "/_save/",
+													              loadDependencies: "/_get_dependencies/{lib_id}/",
+													              showProfile:      "/_show_profile/"
+													            },
+											            value: {
+													              html: " paste in the scanner information found in empire>reports>guild><br><br><br> make sure to select the fleets option and click get report...<br> and then copy and paste the info into this box.<br>\n\n<a target=\"_blank\" href=\"https://i.imgur.com/Qy6eLcv.png\"><img src=https://i.imgur.com/Qy6eLcvb.png><\/a>\n<a target=\"_blank\" href=\"https://i.imgur.com/v1eMruG.png\"><img src=https://i.imgur.com/v1eMruGb.png><\/a>\n\n\n<textarea id=report class=report onfocus=\"this.select();\">\nenemy fleet report goes here.\n<\/textarea>\n<br>\n<br> our guild base list goes here.<br>\n<textarea id=bases class=bases onfocus=\"this.select();\">\nlist of OUR bases go in here.\n<\/textarea>\n<br><br> the result pops out below:<br>\n<input type=\"button\" onclick=\"gogogo(\'greater\');\" value=\"GREATER THAN\">\n<input value=\"601\" id=\"maxfleetsize\">\n<input type=\"button\" onclick=\"gogogo(\'less\');\" value=\"LESS THAN\">\n<div id=output class=output onfocus=\"this.select();\"><\/div>\n<div id=gals class=gals onfocus=\"this.select();\"><\/div>\n",
+													              js:   "window.gogogo = function(gtlt) {\n  //report, bases\n  let buffer = {};\n  buffer.bases = document.getElementById(\"bases\").value;\n  buffer.report = document.getElementById(\"report\").value;\n  buffer.bases = buffer.bases.split(\"\\n\");\n  buffer.report = buffer.report.split(\"\\n\");\n  let sizes = {};\n  sizes.bases = buffer.bases.length;\n  sizes.report = buffer.report.length;\n  let store = {};\n  store.bases = [];\n  store.report = [];\n  store.basesByLocation = [];\n  store.fleetsByLocation = [];\n  store.matches = [];\n  store.regions = [];\n  let i;\n  for (i = 0; i < sizes.bases; i++) {\n    let str = buffer.bases[i];\n    let tok = str.split(\"\\t\");\n    let name = tok[0];\n    let base = tok[1];\n    let location = tok[2];\n    let path = {};\n    if (location) {\n      path = location.split(\":\");\n      let data = {\n        location: location,\n        path: path,\n        owner: name\n      };\n      store.bases.push(data);\n      if (!Array.isArray(store.basesByLocation[path[0] + path[1]])) {\n        store.basesByLocation[path[0] + path[1]] = [];\n      }\n      store.basesByLocation[path[0] + path[1]].push(data);\n      store.regions.push(path[0] + path[1]);\n    }\n  }\n	store.regions = Array.from(new Set(store.regions));\n  for (i = 0; i < sizes.report; i++) {\n    let str = buffer.report[i];\n    let tok = str.split(\"\\t\");\n    let name = tok[0];\n    let location = tok[1];\n    let size = -1;\n    let age = -1;\n    if(tok.length === 5) {\n      size = parseInt(String(tok[3]).replace(\",\", \"\"));\n      age = tok[4];\n    } \n    if(tok.length === 4) {\n      size = parseInt(String(tok[2]).replace(\",\", \"\"));\n      age = tok[3];\n    }\n \n    con#save">
+													              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap=ener("mouseover", showHighlighter)
+													          element.updates.addEventListener("mouseout", hideHighlighter)
+													        }
+
+											        // remove hidden class if user hasn't seen the latest update
+											        if (parseInt(labarItem">
+													  <h3 class="toggler">
+													    Other (links, license)
+													  </discard-draft" href="#">Discard</a>
+													    </span>
+													  </li>
+													</ul>
+
+
