@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title></title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="googlebot" content="noindex, nofollow">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style id="compiled-css" type="text/css">
+      canvas {
+  width: 400px;
+  height: 400px;
+  image-rendering: optimizeSpeed;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: -o-crisp-edges;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: pixelated;
+  image-rendering: optimize-contrast;
+  -ms-interpolation-mode: nearest-neighbor;
+  z-index: -11;
+  position: relative;
+  float: left;
+  clear: both;
+}
+
+.slidecontainer {
+  z-index: 10;
+  left: 0px;
+  top: 0px;
+  position: absolute;
+  transform: scale(0.7);
+  padding: 0px;
+  margin: 0px;
+  width: 400px;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+div {
+  width: 200px;
+  float: left;
+  padding: 5px;
+}
+
+input {
+  clear: right;
+  float: left;
+}
+
+textarea {
+  position: absolute;
+  top: 400px;
+  left: 0px;
+  width: 400px;
+  height: 170px;
+}
+    /* EOS */
+  </style>
+
+  <script id="insert"></script>
+
+
+    <script src="/js/stringify.js?7e5d4926971fd2b7e6d8e1770e0358798a1ce277" charset="utf-8"></script>
+    <script>
+      const customConsole = (w) => {
+        const pushToConsole = (payload, type) => {
+          w.parent.postMessage({
+            console: {
+              payload: stringify(payload),
+              type:    type
+            }
+          }, "*")
+        }
+
+        w.onerror = (message, url, line, column) => {
+          // the line needs to correspond with the editor panel
+          // unfortunately this number needs to be altered every time this view is changed
+          line = line - 70
+          if (line < 0){
+            pushToConsole(message, "error")
+          } else {
+            pushToConsole(`[${line}:${column}] ${message}`, "error")
+          }
+        }
+
+        let console = (function(systemConsole){
+          return {
+            log: function(){
+              let args = Array.from(arguments)
+              pushToConsole(args, "log")
+              systemConsole.log.apply(this, args)
+            },
+            info: function(){
+              let args = Array.from(arguments)
+              pushToConsole(args, "info")
+              systemConsole.info.apply(this, args)
+            },
+            warn: function(){
+              let args = Array.from(arguments)
+              pushToConsole(args, "warn")
+              systemConsole.warn.apply(this, args)
+            },
+            error: function(){
+              let args = Array.from(arguments)
+              pushToConsole(args, "error")
+              systemConsole.error.apply(this, args)
+            },
+            system: function(arg){
+              pushToConsole(arg, "system")
+            },
+            clear: function(arg){
+              systemConsole.clear.apply(this, args)
+            },
+            time: function(arg){
+              systemConsole.time.apply(this, args)
+            },
+            assert: function(arg){
+              systemConsole.assert.apply(this, args)
+            }
+          }
+        }(window.console))
+
+        window.console = console
+
+        console.system("Running fiddle")
+      }
+
+      if (window.parent){
+        customConsole(window)
+      }
+    </script>
+</head>
+<body>
+    
+<canvas id=x width=200 height=200></canvas>
+<div class="slidecontainer">
+<div>rotation</div>
+  <input type="range" step="0.001" min="0" max="6.28319" value="3.14159" class="slider" id="r" oninput="showVal(this)"><br>
+<div>spread</div>
+    <input type="range" step="0.001"  min="0" max="15" value="200" class="slider" id="s" oninput="showVal(this)"><br>
+<div>length</div>
+    <input type="range" step="0.001"  min="0" max="100" value="20" class="slider" id="t" oninput="showVal(this)"><br>
+<div>scale</div>
+    <input type="range" step="0.001"  min="1" max="10" value="5" class="slider" id="scale" oninput="showVal(this)"><br>
+<div>expand</div>
+    <input type="range" step="0.001"  min="1" max="10" value="3.14159" class="slider" id="stretch" oninput="showVal(this)">
+<div>spirals</div>
+    <input type="range" step="1"  min="1" max="20" value="2" step="1" class="slider" id="iterations" oninput="showVal(this)"><br>
+<div>Box-Muller transform</div>
+    <input type="checkbox" value="1" class="slider" id="random_mode" oninput="showVal(this)">
+</div>
+
+<textarea id="output"></textarea>
+
+    <script type="text/javascript">//<![CDATA[
+
+
+var theCanvas = document.getElementById("x");
+var ctx = theCanvas.getContext("2d");
+var xo = (theCanvas.width / 2);
+var yo = (theCanvas.height / 2);
+var r = Math.PI; //rotation
+var s = 15;  
+var t = 20; // iterations
+var scale = 5;
+var stretch = 3.14159;
+var isDrawing = 0;
+var iterations = 2;
+var boxmuller = false;
+
+function showVal(e) {
+  switch (e.id) {
+    case "r":
+    	r = e.value;
+      break;
+    case "s":
+    	s = e.value;
+      break;
+    case "t":
+      t = e.value;
+      break;
+    case "scale":
+      scale =  e.value;
+      break;
+    case "stretch":
+      stretch =  e.value;
+      break;
+    case "iterations":
+      iterations = e.value;
+      break;
+    case "random_mode":
+    	boxmuller = e.checked;
+      break;
+  }
+  if(isDrawing !== 1) draw();
+  var spiral = {
+    width: xo*2,
+    height: xo*2,
+    rotation: r,
+    spread: s,
+    length: t,
+    scale: scale,
+    expand: stretch,
+    spirals: iterations,
+    boxmuller: boxmuller,
+  
+  };
+  output.value = JSON.stringify(spiral,null,2);
+
+}
+
+function draw() {
+  isDrawing = 1;
+  ctx.clearRect(0, 0, xo*2, yo*2);
+  ctx.save();
+  ctx.translate(xo, yo);
+  for (xyz = 0; xyz < iterations; xyz += 1) {
+    for (it = 0.01; it < t; it += 0.1) {
+      var x = (it * stretch) * (it * scale * Math.cos(it));
+      var y = (it * stretch) * (it * scale * Math.sin(it));
+      spray((x), (y), it);
+    }
+    ctx.rotate(r);
+  }
+  ctx.restore();
+  isDrawing = 0;
+}
+
+/* draw and update text area */
+showVal({id: null});
+
+function spray(x, y, it) {
+  for (i = 0; i <= t - it + 10; i += 1) {
+    //ctx.fillRect(x,y,1,1);
+    rx = -1 * Math.floor(
+      x + random() * (random() * (
+        !boxmuller?s:s/4)
+      )
+    );
+    ry = -1 * Math.floor(
+      y + random() * (random() * (
+        !boxmuller?s:s/4)
+      )
+    );
+    ctx.fillRect(rx, ry, 1, 1);
+  }
+}
+function random() {
+	switch (boxmuller) {
+  	case false:
+    	return Math.random();
+    case true:
+    	return randn_bm();
+  }
+}
+/*
+  https://stackoverflow.com/questions/25582882/javascript-math-random-normal-distribution-gaussian-bell-curve
+
+  Standard Normal variate using Box-Muller transform.
+*/
+function randn_bm  () {
+    var u = 0, v = 0;
+    while(u === 0) u = Math.random(); //Converting [0,1) to (0,1)
+    while(v === 0) v = Math.random();
+    return Math.sqrt( -2.0 * Math.log( u ) ) * Math.cos( 2.0 * Math.PI * v );
+}
+
+
+  //]]></script>
+
+
+</body>
+</html>
